@@ -17,7 +17,7 @@ class FileTypeSearch extends FileType
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id'], 'each', 'rule' => ['integer']],
             [['file', 'type'], 'safe'],
         ];
     }
@@ -58,9 +58,12 @@ class FileTypeSearch extends FileType
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-        ]);
+        if (is_array($this->id)) {
+            $query->andFilterWhere(['in', 'id', $this->id]);
+        } else {
+            $query->andFilterWhere(['id' => $this->id]);
+        }
+
 
         $query->andFilterWhere(['like', 'file', $this->file])
             ->andFilterWhere(['like', 'type', $this->type]);

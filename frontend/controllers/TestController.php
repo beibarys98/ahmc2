@@ -60,7 +60,7 @@ class TestController extends Controller
     {
         $searchModel = new UserTestSearch();
         $queryParams = $this->request->queryParams;
-        $queryParams['test_id'] = $id;
+        $queryParams['UserTestSearch']['test_id'] = $id;
         $dataProvider = $searchModel->search($queryParams);
 
         return $this->render('view', [

@@ -6,9 +6,6 @@ use yii\helpers\Html;
 /** @var common\models\User $model */
 
 $this->title = 'Өзгерту: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Қатысушылар', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Өзгерту';
 ?>
 <div class="user-update">
 

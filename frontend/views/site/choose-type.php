@@ -5,7 +5,7 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = Yii::$app->name;
+$this->title = 'Оқу түрін таңдаңыз';
 ?>
 <div class="site-index">
 
@@ -15,7 +15,7 @@ $this->title = Yii::$app->name;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'summary' => false, // hide "Showing 1-2 of 2"
+        'summary' => false,
         'showHeader' => false,
         'columns' => [
             [
@@ -49,7 +49,7 @@ $this->title = Yii::$app->name;
                 'label' => '',
                 'format' => 'raw',
                 'value' => function ($model, $key, $index, $column) {
-                    $disabled = $model['type'] == 'free' ? 'active' : 'disabled';
+                    $disabled = $model['type'] == 'budget' ? 'active' : 'disabled';
                     return Html::tag('div',
                         Html::a('Таңдау', ['site/upload-files', 'type' => $model['type']], [
                             'class' => 'btn btn-primary btn-sm grid-button ' . $disabled,

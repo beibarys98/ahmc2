@@ -13,7 +13,7 @@ use Yii;
  */
 class FileType extends \yii\db\ActiveRecord
 {
-
+    public $singleFile;
 
     /**
      * {@inheritdoc}
@@ -29,6 +29,8 @@ class FileType extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ['singleFile', 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf'],
+
             [['file', 'type'], 'required'],
             [['file'], 'string', 'max' => 255],
             [['type'], 'string', 'max' => 100],

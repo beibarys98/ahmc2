@@ -14,7 +14,6 @@ $this->title = Yii::$app->name;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'summary' => false,
         'showHeader' => false,
         'columns' => [
